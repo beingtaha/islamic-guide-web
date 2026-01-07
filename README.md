@@ -7,7 +7,7 @@ A comprehensive Islamic web application built with React JS that provides daily 
 ![Status](https://img.shields.io/badge/Status-Live-success)
 
 ## ✨ Live Demo
-[![Vercel]([https://img.shields.io/badge/Vercel-Live_Project-black)](YOUR_VERCEL_URL_HERE](https://islamic-guide-web.vercel.app/))
+[![Vercel](https://islamic-guide-web.vercel.app/)
 
 ## 📱 Features
 
