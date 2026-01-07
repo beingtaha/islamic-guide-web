@@ -7,7 +7,7 @@ A comprehensive Islamic web application built with React JS that provides daily 
 ![Status](https://img.shields.io/badge/Status-Live-success)
 
 ## ✨ Live Demo
-[![Vercel](https://img.shields.io/badge/Vercel-Live_Project-black)](YOUR_VERCEL_URL_HERE)
+[![Vercel]([https://img.shields.io/badge/Vercel-Live_Project-black)](YOUR_VERCEL_URL_HERE](https://islamic-guide-web.vercel.app/))
 
 ## 📱 Features
 
@@ -66,7 +66,7 @@ text
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/islamic-guide-app.git
+   git clone (https://github.com/beingtaha/islamic-guide-web))
 Navigate to project directory
 
 bash
@@ -128,9 +128,9 @@ Open a Pull Request
 This project is licensed under the MIT License.
 
 👨‍💻 Developer
-Muhammad Ahmad
+Taha Ahmed
 
-GitHub: @YOUR_USERNAME
+GitHub: @beingtaha
 
 🙏 Acknowledgments
 All Islamic content from authentic sources
