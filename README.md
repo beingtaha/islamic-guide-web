@@ -2,12 +2,12 @@
 
 A comprehensive Islamic web application built with React JS that provides daily Islamic necessities including prayer times, duas, hadiths, Quran verses, and more.
 
-![Islamic Guide](https://img.shields.io/badge/React-18.2-blue)
+![React](https://img.shields.io/badge/React-18.2-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![Status](https://img.shields.io/badge/Status-Live-success)
 
 ## ✨ Live Demo
-[![Vercel](https://img.shields.io/badge/Vercel-Live_Project-black)](https://your-project.vercel.app)
+[![Vercel](https://img.shields.io/badge/Vercel-Live_Project-black)](YOUR_VERCEL_URL_HERE)
 
 ## 📱 Features
 
@@ -83,11 +83,6 @@ Open in browser
 
 text
 http://localhost:3000
-📸 Screenshots
-Home Page	Prayer Times	Daily Duas
-https://screenshots/home.png	https://screenshots/prayer.png	https://screenshots/duas.png
-Hadiths	Qibla Finder	Quran Verses
-https://screenshots/hadiths.png	https://screenshots/qibla.png	https://screenshots/quran.png
 🌟 Key Highlights
 User-Friendly Interface: Clean and intuitive design
 
@@ -130,14 +125,12 @@ Push to the branch (git push origin feature/AmazingFeature)
 Open a Pull Request
 
 📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License.
 
 👨‍💻 Developer
-Taha Ahmed
+Muhammad Ahmad
 
-GitHub: @beingtaha
-
-Portfolio: (in progress
+GitHub: @YOUR_USERNAME
 
 🙏 Acknowledgments
 All Islamic content from authentic sources
@@ -148,4 +141,4 @@ Vercel for free hosting
 
 All contributors and supporters
 
-<div align="center"> <p>Made with ❤️ for the Muslim Ummah</p> <p>If you find this project helpful, please give it a ⭐</p> </div> ```
+<div align="center"> <p>Made with ❤️ for the Muslim Ummah</p> <p>If you find this project helpful, please give it a ⭐</p> </div> ``
