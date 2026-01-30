@@ -39,9 +39,12 @@ A comprehensive Islamic web application built with React JS that provides daily 
 
 ## 📁 Project Structure
 islamic-app/
-├── public/ 
-├── src/ 
-│ ├── pages/ 
+├── public/
+
+├── src/
+
+│ ├── pages/
+
 │ │ ├── HomePage.js # Main landing page
 │ │ ├── PrayerTimes.js # Prayer timings page
 │ │ ├── PrayerGuide.js # Namaz guide page
