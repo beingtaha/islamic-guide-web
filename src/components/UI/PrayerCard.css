@@ -1,0 +1,85 @@
+.prayer-card {
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.prayer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark Mode */
+.dark-mode .prayer-card,
+.prayer-widget.dark .prayer-card {
+  background: #2d2d44;
+  border-color: #404060;
+  color: #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.prayer-icon {
+  font-size: 2.5rem;
+  min-width: 60px;
+  text-align: center;
+}
+
+.prayer-info {
+  flex: 1;
+}
+
+.prayer-name {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.dark-mode .prayer-name,
+.prayer-widget.dark .prayer-name {
+  color: #ffd700;
+}
+
+.prayer-time-single {
+  display: flex;
+  align-items: center;
+}
+
+.time-value {
+  color: #27ae60;
+  font-weight: 600;
+  font-family: monospace;
+  font-size: 1.3rem;
+}
+
+.dark-mode .time-value,
+.prayer-widget.dark .time-value {
+  color: #ffd700;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .prayer-card {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .prayer-icon {
+    font-size: 2rem;
+    min-width: 50px;
+  }
+
+  .prayer-name {
+    font-size: 1.1rem;
+  }
+
+  .time-value {
+    font-size: 1.1rem;
+  }
+}

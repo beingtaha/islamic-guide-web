@@ -1,0 +1,28 @@
+.language-toggle {
+  background: transparent;
+  border: 2px solid currentColor;
+  border-radius: 25px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: inherit;
+  font-weight: 500;
+}
+
+.language-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Dark mode specific */
+.dark-mode .language-toggle {
+  border-color: #ffd700;
+  color: #ffd700;
+}
+
+/* Light mode specific */
+.light-mode .language-toggle {
+  border-color: #2c3e50;
+  color: #2c3e50;
+}

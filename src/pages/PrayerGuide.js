@@ -1,110 +1,166 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../context/ThemeContext";
+import { LanguageContext } from "../context/LanguageContext";
 import "./PrayerGuide.css";
 
 function PrayerGuide() {
+  const { isDarkMode } = useContext(ThemeContext);
+  const { language } = useContext(LanguageContext);
   const [currentStep, setCurrentStep] = useState(0);
+
+  // Force re-render when language or theme changes
+  useEffect(() => {
+    // This forces the component to re-render
+  }, [language, isDarkMode]);
 
   const prayerSteps = [
     {
       id: 1,
-      title: "Niyat (Intention)",
+      titleUrdu: "نیت",
+      titleEng: "Niyat (Intention)",
       arabic: "نَوَيْتُ أَنْ أُصَلِّيَ",
       transliteration: "Nawaitu an usalli",
-      translation: "Main ne niyat ki namaz padhne ki",
-      description:
-        "Dil mein niyat karein ke konsi namaz padh rahe hain. Niyat dil se hai, zubaan se bolna zaroori nahi.",
+      translationUrdu: "میں نے نیت کی نماز پڑھنے کی",
+      translationEng: "I intend to pray",
+      descriptionUrdu:
+        "دل میں نیت کریں کہ کونسی نماز پڑھ رہے ہیں۔ نیت دل سے ہے، زبان سے بولنا ضروری نہیں۔",
+      descriptionEng:
+        "Make intention in your heart which prayer you are offering. Intention is from the heart, not necessary to speak.",
       image: "🤲",
-      tip: "Niyat ka matlab hai intention. Har namaz se pehle dil se niyat karein.",
+      tipUrdu: "نیت کا مطلب ہے ارادہ۔ ہر نماز سے پہلے دل میں نیت کریں۔",
+      tipEng:
+        "Intention means purpose. Make intention in your heart before every prayer.",
     },
     {
       id: 2,
-      title: "Takbir-e-Tahrima",
+      titleUrdu: "تکبیر تحریمہ",
+      titleEng: "Takbir-e-Tahrima",
       arabic: "اللهُ أَكْبَرُ",
       transliteration: "Allahu Akbar",
-      translation: "Allah sab se bada hai",
-      description:
-        "Donon haath kaanon tak uthayein, anguthay kaano ke lob ke samne ho, aur Allahu Akbar kahein.",
+      translationUrdu: "اللہ سب سے بڑا ہے",
+      translationEng: "Allah is the Greatest",
+      descriptionUrdu:
+        "دونوں ہاتھ کانوں تک اٹھائیں، انگوٹھے کانوں کے لوب کے سامنے ہوں، اور اللہ اکبر کہیں۔",
+      descriptionEng:
+        "Raise both hands to the ears, thumbs touching earlobes, and say Allahu Akbar.",
       image: "🙌",
-      tip: "Takbir ke baad namaz shuru ho jati hai, baat cheet band karein.",
+      tipUrdu: "تکبیر کے بعد نماز شروع ہو جاتی ہے، بات چیت بند کریں۔",
+      tipEng: "Prayer begins after Takbir, stop all conversations.",
     },
     {
       id: 3,
-      title: "Qiyam (Standing)",
+      titleUrdu: "قیام",
+      titleEng: "Qiyam (Standing)",
       arabic: "سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ",
       transliteration: "Subhanaka Allahumma wa bihamdika",
-      translation:
-        "Aye Allah! Main teri paaki bayan karta hoon aur teri tareef karta hoon",
-      description:
-        "Seedha khade ho kar, right hand ko left hand par rakh kar naaf ke neeche bandhein. Pehle Sana parhein, phir Surah Fatiha aur koi aur Surah.",
+      translationUrdu:
+        "اے اللہ! میں تیری پاکی بیان کرتا ہوں اور تیری تعریف کرتا ہوں",
+      translationEng: "Glory be to You, O Allah, and all praise is Yours",
+      descriptionUrdu:
+        "سیدھے کھڑے ہو کر، دایاں ہاتھ بائیں ہاتھ پر رکھ کر ناف کے نیچے باندھیں۔ پہلے ثنا پڑھیں، پھر سورۃ فاتحہ اور کوئی اور سورۃ۔",
+      descriptionEng:
+        "Stand straight, place right hand over left below navel. Recite Sana, then Surah Fatiha and another Surah.",
       image: "🧍",
-      tip: "Qiraat dheere awaaz mein karein, sirf apne sunne ki awaaz mein.",
+      tipUrdu: "قراءت دھیرے آواز میں کریں، صرف اپنے سننے کی آواز میں۔",
+      tipEng: "Recite quietly, only loud enough for yourself to hear.",
     },
     {
       id: 4,
-      title: "Ruku (Bowing)",
+      titleUrdu: "رکوع",
+      titleEng: "Ruku (Bowing)",
       arabic: "سُبْحَانَ رَبِّيَ الْعَظِيمِ",
       transliteration: "Subhana Rabbiyal Azeem",
-      translation: "Mera Rabb bohat azeem hai",
-      description:
-        "Kamar jhukayein, ghutno ko pakrein, peeth seedhi rakhein, sar seedha rakhein. Teen martaba 'Subhana Rabbiyal Azeem' kahein.",
+      translationUrdu: "میرا رب بہت عظیم ہے",
+      translationEng: "Glory to my Lord, the Most Great",
+      descriptionUrdu:
+        "کمر جھکائیں، گھٹنوں کو پکڑیں، پیٹھ سیدھی رکھیں، سر سیدھا رکھیں۔ تین مرتبہ 'سبحان ربی العظیم' کہیں۔",
+      descriptionEng:
+        "Bow down, hold your knees, keep your back straight, head level. Say 'Subhana Rabbiyal Azeem' three times.",
       image: "🙇",
-      tip: "Ruku mein itna jhukein ke haath ghutno tak pahunchein.",
+      tipUrdu: "رکوع میں اتنا جھکیں کہ ہاتھ گھٹنوں تک پہنچ جائیں۔",
+      tipEng: "Bow until your hands reach your knees.",
     },
     {
       id: 5,
-      title: "Qawmah (Standing after Ruku)",
+      titleUrdu: "قومہ",
+      titleEng: "Qawmah (Standing after Ruku)",
       arabic: "سَمِعَ اللَّهُ لِمَنْ حَمِدَهُ",
       transliteration: "Sami' Allahu liman hamidah",
-      translation: "Allah ne uski tareef sun li jo uski hamd kare",
-      description:
-        "Ruku se uth kar seedha khade ho jayein aur 'Sami' Allahu liman hamidah' kahein, phir 'Rabbana lakal hamd' kahein.",
+      translationUrdu: "اللہ نے اس کی تعریف سن لی جو اس کی حمد کرتا ہے",
+      translationEng: "Allah hears those who praise Him",
+      descriptionUrdu:
+        "رکوع سے اٹھ کر سیدھے کھڑے ہو جائیں اور 'سمع اللہ لمن حمدہ' کہیں، پھر 'ربنا لک الحمد' کہیں۔",
+      descriptionEng:
+        "Stand up straight from ruku and say 'Sami' Allahu liman hamidah', then 'Rabbana lakal hamd'.",
       image: "🕴️",
-      tip: "Qawmah mein thora sa ruk kar phir sajde mein jayein.",
+      tipUrdu: "قومہ میں تھوڑا سا رک کر پھر سجدے میں جائیں۔",
+      tipEng: "Pause briefly in Qawmah before going to sajdah.",
     },
     {
       id: 6,
-      title: "Sajdah (Prostration)",
+      titleUrdu: "سجدہ",
+      titleEng: "Sajdah (Prostration)",
       arabic: "سُبْحَانَ رَبِّيَ الْأَعْلَى",
       transliteration: "Subhana Rabbiyal A'la",
-      translation: "Mera Rabb bohat aala hai",
-      description:
-        "Pehle ghutne, phir haath, phir naak aur phir matha zameen par rakh kar sajda karein. Ungliyan qibla ki taraf hon. Teen martaba dua parhein.",
+      translationUrdu: "میرا رب بہت اعلیٰ ہے",
+      translationEng: "Glory to my Lord, the Most High",
+      descriptionUrdu:
+        "پہلے گھٹنے، پھر ہاتھ، پھر ناک اور پھر ماتھا زمین پر رکھ کر سجدہ کریں۔ انگلیاں قبلہ کی طرف ہوں۔ تین مرتبہ دعا پڑھیں۔",
+      descriptionEng:
+        "Place knees, then hands, then nose and forehead on the ground. Fingers pointing towards Qibla. Recite three times.",
       image: "🤲",
-      tip: "Sajde mein peshaani, naak, dono haath, dono ghutne aur paon ki ungliyan zameen lagne chahiye.",
+      tipUrdu:
+        "سجدے میں پیشانی، ناک، دونوں ہاتھ، دونوں گھٹنے اور پاؤں کی انگلیاں زمین پر لگنی چاہئیں۔",
+      tipEng:
+        "Forehead, nose, both hands, both knees, and toes should touch the ground.",
     },
     {
       id: 7,
-      title: "Jalsa (Sitting between Sajdah)",
+      titleUrdu: "جلسہ",
+      titleEng: "Jalsa (Sitting between Sajdahs)",
       arabic: "رَبِّ اغْفِرْ لِي",
       transliteration: "Rabbighfir li",
-      translation: "Aye mere Rabb! Mujhe maaf kar de",
-      description:
-        "Pehle sajde se uth kar baith jayein, baithne ka tareeqa: left paanv ko bichayein, right paanv khada rakhein, us par baithein. 'Rabbighfir li' kahein.",
+      translationUrdu: "اے میرے رب! مجھے معاف فرما",
+      translationEng: "O my Lord! Forgive me",
+      descriptionUrdu:
+        "پہلے سجدے سے اٹھ کر بیٹھ جائیں، بائیں پاؤں کو بچھائیں، دایاں پاؤں کھڑا رکھیں، اس پر بیٹھیں۔ 'رب اغفر لی' کہیں۔",
+      descriptionEng:
+        "Sit up from first sajdah, spread left foot, keep right foot upright, sit on it. Say 'Rabbighfir li'.",
       image: "🧘",
-      tip: "Jalsa mein itni dair baithein ke jism stabilize ho jaye.",
+      tipUrdu: "جلسہ میں اتنی دیر بیٹھیں کہ جسم مستحکم ہو جائے۔",
+      tipEng: "Sit in Jalsa until body stabilizes.",
     },
     {
       id: 8,
-      title: "Tashahhud (Final Sitting)",
+      titleUrdu: "تشہد",
+      titleEng: "Tashahhud (Final Sitting)",
       arabic: "التَّحِيَّاتُ لِلَّهِ",
       transliteration: "Attahiyyatu lillahi",
-      translation: "Har tarah ki taazeem Allah ke liye hai",
-      description:
-        "Akri rakat mein Tashahhud, Durood Shareef aur Dua-e-Masura parhein.",
+      translationUrdu: "تمام تعریفیں اللہ کے لیے ہیں",
+      translationEng: "All greetings are for Allah",
+      descriptionUrdu: "آخری رکعت میں تشہد، درود شریف اور دعا ماثورہ پڑھیں۔",
+      descriptionEng:
+        "In final rakah, recite Tashahhud, Durood, and Dua-e-Masura.",
       image: "🙏",
-      tip: "Tashahhud mein shahadat ki ungli uthayein aur hilaayein.",
+      tipUrdu: "تشہد میں شہادت کی انگلی اٹھائیں اور ہلائیں۔",
+      tipEng: "Raise and move the index finger during Tashahhud.",
     },
     {
       id: 9,
-      title: "Salam (Ending Prayer)",
+      titleUrdu: "سلام",
+      titleEng: "Salam (Ending Prayer)",
       arabic: "السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ",
       transliteration: "Assalamu alaikum wa rahmatullah",
-      translation: "Aap par salamti ho aur Allah ki rehmat",
-      description:
-        "Pehle right side ko salam pherein, phir left side ko. Iske saath namaz khatam ho jati hai.",
+      translationUrdu: "آپ پر سلامتی ہو اور اللہ کی رحمت",
+      translationEng: "Peace be upon you and the mercy of Allah",
+      descriptionUrdu:
+        "پہلے دائیں طرف سلام پھیریں، پھر بائیں طرف۔ اس کے ساتھ نماز ختم ہو جاتی ہے۔",
+      descriptionEng:
+        "First turn right and say Salam, then turn left. This completes the prayer.",
       image: "🕊️",
-      tip: "Salam ke baad tasbeeh aur dua kar sakte hain.",
+      tipUrdu: "سلام کے بعد تسبیح اور دعا کر سکتے ہیں۔",
+      tipEng: "After Salam, you can recite Tasbih and make dua.",
     },
   ];
 
@@ -124,14 +180,38 @@ function PrayerGuide() {
     setCurrentStep(stepIndex);
   };
 
+  const currentStepData = prayerSteps[currentStep];
+
+  // Get current text based on language
+  const getTitle = () =>
+    language === "urdu" ? currentStepData.titleUrdu : currentStepData.titleEng;
+  const getTranslation = () =>
+    language === "urdu"
+      ? currentStepData.translationUrdu
+      : currentStepData.translationEng;
+  const getDescription = () =>
+    language === "urdu"
+      ? currentStepData.descriptionUrdu
+      : currentStepData.descriptionEng;
+  const getTip = () =>
+    language === "urdu" ? currentStepData.tipUrdu : currentStepData.tipEng;
+
   return (
-    <div className="guide-container">
+    <div className={`guide-container ${isDarkMode ? "dark" : "light"}`}>
       <Link to="/" className="nav-back">
-        ← Back to Home
+        {language === "urdu" ? "← ہوم پیج" : "← Home"}
       </Link>
 
-      <h1>📿 Namaz ka Mukammal Tarika</h1>
-      <p className="subtitle">Step-by-Step Guide with Arabic, Urdu & English</p>
+      <h1>
+        {language === "urdu"
+          ? "📿 نماز کا مکمل طریقہ"
+          : "📿 Complete Prayer Guide"}
+      </h1>
+      <p className="subtitle">
+        {language === "urdu"
+          ? "عربی، اردو اور انگریزی میں مرحلہ وار رہنمائی"
+          : "Step-by-Step Guide with Arabic, Urdu & English"}
+      </p>
 
       <div className="progress-section">
         <div className="progress-bar">
@@ -143,7 +223,9 @@ function PrayerGuide() {
           ></div>
         </div>
         <div className="step-counter">
-          Step {currentStep + 1} of {prayerSteps.length}
+          {language === "urdu"
+            ? `مرحلہ ${currentStep + 1} از ${prayerSteps.length}`
+            : `Step ${currentStep + 1} of ${prayerSteps.length}`}
         </div>
       </div>
 
@@ -151,11 +233,11 @@ function PrayerGuide() {
         {prayerSteps.map((step, index) => (
           <button
             key={step.id}
-            className={`step-dot ${index === currentStep ? "active" : ""} ${
-              index < currentStep ? "completed" : ""
-            }`}
+            className={`step-dot ${index === currentStep ? "active" : ""} ${index < currentStep ? "completed" : ""}`}
             onClick={() => goToStep(index)}
-            title={`Step ${index + 1}: ${step.title}`}
+            title={
+              language === "urdu" ? `مرحلہ ${index + 1}` : `Step ${index + 1}`
+            }
           >
             {index + 1}
           </button>
@@ -164,35 +246,35 @@ function PrayerGuide() {
 
       <div className="step-card">
         <div className="step-header">
-          <div className="step-image">{prayerSteps[currentStep].image}</div>
+          <div className="step-image">{currentStepData.image}</div>
           <div className="step-title-section">
-            <h2>{prayerSteps[currentStep].title}</h2>
+            <h2>{getTitle()}</h2>
             <span className="step-number">
-              Step {prayerSteps[currentStep].id}
+              {language === "urdu"
+                ? `مرحلہ ${currentStepData.id}`
+                : `Step ${currentStepData.id}`}
             </span>
           </div>
         </div>
 
         <div className="arabic-section">
-          <div className="arabic-text">{prayerSteps[currentStep].arabic}</div>
-          <p className="transliteration">
-            "{prayerSteps[currentStep].transliteration}"
-          </p>
+          <div className="arabic-text">{currentStepData.arabic}</div>
+          <p className="transliteration">"{currentStepData.transliteration}"</p>
         </div>
 
         <div className="translation-section">
-          <h3>Translation:</h3>
-          <p>"{prayerSteps[currentStep].translation}"</p>
+          <h3>{language === "urdu" ? "ترجمہ:" : "Translation:"}</h3>
+          <p className="translation-text">"{getTranslation()}"</p>
         </div>
 
         <div className="description-section">
-          <h3>Method:</h3>
-          <p>{prayerSteps[currentStep].description}</p>
+          <h3>{language === "urdu" ? "طریقہ:" : "Method:"}</h3>
+          <p className="description-text">{getDescription()}</p>
         </div>
 
         <div className="tip-section">
-          <h4>💡 Tip:</h4>
-          <p>{prayerSteps[currentStep].tip}</p>
+          <h4>{language === "urdu" ? "💡 ٹپ:" : "💡 Tip:"}</h4>
+          <p className="tip-text">{getTip()}</p>
         </div>
       </div>
 
@@ -202,28 +284,51 @@ function PrayerGuide() {
           disabled={currentStep === 0}
           className={`nav-btn prev-btn ${currentStep === 0 ? "disabled" : ""}`}
         >
-          ← Previous Step
+          {language === "urdu" ? "← پچھلا مرحلہ" : "← Previous Step"}
         </button>
 
         <button
           onClick={nextStep}
           disabled={currentStep === prayerSteps.length - 1}
-          className={`nav-btn next-btn ${
-            currentStep === prayerSteps.length - 1 ? "disabled" : ""
-          }`}
+          className={`nav-btn next-btn ${currentStep === prayerSteps.length - 1 ? "disabled" : ""}`}
         >
-          {currentStep === prayerSteps.length - 1 ? "Complete" : "Next Step →"}
+          {currentStep === prayerSteps.length - 1
+            ? language === "urdu"
+              ? "مکمل"
+              : "Complete"
+            : language === "urdu"
+              ? "اگلا مرحلہ →"
+              : "Next Step →"}
         </button>
       </div>
 
       <div className="quick-tips">
-        <h3>📝 Quick Tips for Perfect Prayer:</h3>
+        <h3>
+          {language === "urdu"
+            ? "📝 نماز کے لیے فوری ٹپس:"
+            : "📝 Quick Tips for Prayer:"}
+        </h3>
         <ul>
-          <li>❤️ Dil se khushu-o-khuzu ke saath padhein</li>
-          <li>⏱️ Har rukn itni dair karein ke thahar jayein</li>
-          <li>🧘 Har halat mein tameen (stability) rakhein</li>
-          <li>📖 Tartib ka khayal rakhein</li>
-          <li>🤲 Dua mein dil laga kar maangein</li>
+          <li>
+            {language === "urdu"
+              ? "❤️ دل سے خشوع و خضوع کے ساتھ پڑھیں"
+              : "❤️ Pray with humility and concentration"}
+          </li>
+          <li>
+            {language === "urdu"
+              ? "⏱️ ہر رکن اتنی دیر کریں کہ جسم ٹھہر جائے"
+              : "⏱️ Pause at each posture until body is still"}
+          </li>
+          <li>
+            {language === "urdu"
+              ? "🧘 ہر حالت میں تسکین رکھیں"
+              : "🧘 Maintain composure in every position"}
+          </li>
+          <li>
+            {language === "urdu"
+              ? "📖 ترتیب کا خیال رکھیں"
+              : "📖 Maintain proper order"}
+          </li>
         </ul>
       </div>
     </div>

@@ -1,244 +1,366 @@
+/* ===== BASE STYLES ===== */
 .duas-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+  transition: all 0.3s ease;
 }
 
+/* ===== LIGHT MODE ===== */
+.duas-container.light {
+  background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+  color: #2c3e50;
+}
+
+/* ===== DARK MODE - COMPLETE FIX ===== */
+.duas-container.dark {
+  background: #0a1929 !important;
+  color: #ffffff !important;
+}
+
+/* Dark Mode - All text white */
+.duas-container.dark * {
+  color: #ffffff;
+}
+
+.duas-container.dark h1,
+.duas-container.dark h2,
+.duas-container.dark h3,
+.duas-container.dark h4,
+.duas-container.dark .subtitle,
+.duas-container.dark .duas-count {
+  color: #ffffff !important;
+}
+
+/* Special gold elements */
+.duas-container.dark .dua-title-section h3,
+.duas-container.dark .arabic-text,
+.duas-container.dark .detail-label,
+.duas-container.dark .duas-footer h3 {
+  color: #ffd700 !important;
+}
+
+/* ===== HEADER SECTION ===== */
 .duas-header {
-    text-align: center;
-    margin: 40px 0 30px;
+  text-align: center;
+  margin: 40px 0 30px;
 }
 
 .duas-header h1 {
-    color: #2c3e50;
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
 }
 
 .subtitle {
-    color: #7f8c8d;
-    font-size: 1.1rem;
-    margin-bottom: 30px;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: #7f8c8d;
 }
 
+/* ===== SEARCH & FILTER SECTION ===== */
 .search-filter-section {
-    background: white;
-    border-radius: 20px;
-    padding: 30px;
-    margin-bottom: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.duas-container.dark .search-filter-section {
+  background: #1e2a47 !important;
 }
 
 .search-box {
-    position: relative;
-    margin-bottom: 30px;
+  position: relative;
+  margin-bottom: 30px;
 }
 
 .search-input {
-    width: 100%;
-    padding: 18px 25px 18px 50px;
-    border: 2px solid #e0e0e0;
-    border-radius: 50px;
-    font-size: 1.1rem;
-    transition: all 0.3s;
-    background: #f8f9fa;
+  width: 100%;
+  padding: 18px 25px 18px 50px;
+  border: 2px solid #e0e0e0;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  transition: all 0.3s;
+  background: #f8f9fa;
+  color: #2c3e50;
+}
+
+.duas-container.dark .search-input {
+  background: #0a1929 !important;
+  border-color: #404060 !important;
+  color: #ffffff !important;
 }
 
 .search-input:focus {
-    outline: none;
-    border-color: #27ae60;
-    background: white;
-    box-shadow: 0 5px 15px rgba(39, 174, 96, 0.1);
+  outline: none;
+  border-color: #27ae60;
+  box-shadow: 0 5px 15px rgba(39, 174, 96, 0.1);
+}
+
+.duas-container.dark .search-input:focus {
+  border-color: #ffd700 !important;
 }
 
 .search-icon {
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.2rem;
-    color: #7f8c8d;
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: #7f8c8d;
 }
 
+.duas-container.dark .search-icon {
+  color: #ffd700 !important;
+}
+
+/* ===== CATEGORIES ===== */
 .categories-section h3 {
-    color: #2c3e50;
-    margin-bottom: 20px;
-    font-size: 1.3rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.categories-section h3::before {
-    content: "🏷️";
+.duas-container.dark .categories-section h3 {
+  color: #ffd700 !important;
 }
 
 .categories-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .category-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 20px;
-    border: 2px solid #e0e0e0;
-    background: white;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s;
-    font-size: 0.95rem;
-    color: #34495e;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border: 2px solid #e0e0e0;
+  background: white;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 0.95rem;
+  color: #34495e;
+}
+
+.duas-container.dark .category-btn {
+  background: #0a1929 !important;
+  border-color: #404060 !important;
+  color: #ffffff !important;
 }
 
 .category-btn:hover {
-    border-color: #27ae60;
-    transform: translateY(-3px);
+  border-color: #27ae60;
+  transform: translateY(-3px);
+}
+
+.duas-container.dark .category-btn:hover {
+  border-color: #ffd700 !important;
 }
 
 .category-btn.active {
-    background: #27ae60;
-    color: white;
-    border-color: #27ae60;
+  background: #27ae60 !important;
+  color: white !important;
+  border-color: #27ae60 !important;
+}
+
+.duas-container.dark .category-btn.active {
+  background: #ffd700 !important;
+  color: #0a1929 !important;
+  border-color: #ffd700 !important;
 }
 
 .category-icon {
-    font-size: 1.1rem;
+  font-size: 1.1rem;
 }
 
+/* ===== DUAS COUNT ===== */
 .duas-count {
-    text-align: center;
-    color: #7f8c8d;
-    margin-bottom: 30px;
-    font-size: 1.1rem;
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    display: inline-block;
-    margin: 0 auto 30px;
-    display: block;
-    max-width: 300px;
+  text-align: center;
+  color: #7f8c8d;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 0 auto 30px;
+  display: block;
+  max-width: 300px;
 }
 
+.duas-container.dark .duas-count {
+  background: #1e2a47 !important;
+  color: #ffffff !important;
+}
+
+/* ===== DUAS GRID ===== */
 .duas-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 30px;
-    margin-bottom: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
 }
 
 .dua-card {
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s, box-shadow 0.3s;
-    border: 1px solid #f0f0f0;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid #f0f0f0;
+}
+
+.duas-container.dark .dua-card {
+  background: #1e2a47 !important;
+  border-color: #404060 !important;
 }
 
 .dua-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
+/* ===== DUA HEADER ===== */
 .dua-header {
-    background: linear-gradient(135deg, #0d3b2a 0%, #1a5c3e 100%);
-    padding: 25px;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+  background: linear-gradient(135deg, #0d3b2a 0%, #1a5c3e 100%);
+  padding: 25px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.duas-container.dark .dua-header {
+  background: linear-gradient(135deg, #2d2d44 0%, #404060 100%) !important;
 }
 
 .dua-title-section h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: white !important;
 }
 
 .dua-category {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    text-transform: capitalize;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  text-transform: capitalize;
 }
 
 .dua-actions {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .copy-btn {
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: white;
-    padding: 8px 15px;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.3s;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .copy-btn:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
 }
 
+/* ===== ARABIC DUA ===== */
 .arabic-dua {
-    padding: 30px 25px;
-    text-align: center;
-    border-bottom: 1px solid #f0f0f0;
+  padding: 30px 25px;
+  text-align: center;
+  border-bottom: 1px solid #f0f0f0;
 }
 
+.duas-container.dark .arabic-dua {
+  border-bottom-color: #404060 !important;
+}
+
+/* ===== ARABIC TEXT - LIGHT MODE FIX ===== */
 .arabic-text {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #2c3e50;
-    margin-bottom: 15px;
-    line-height: 1.5;
-    font-family: 'Traditional Arabic', 'Scheherazade', serif;
-    direction: rtl;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #0a3d2a !important;  /* Dark green - visible in light mode */
+  margin-bottom: 15px;
+  line-height: 1.5;
+  font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+  direction: rtl;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
+/* Light Mode - ensure Arabic is visible */
+.duas-container.light .arabic-text {
+  color: #0a3d2a !important;  /* Dark green */
+}
+
+/* Dark Mode - Arabic text gold */
+.duas-container.dark .arabic-text {
+  color: #ffd700 !important;  /* Gold */
+}
+
+/* ===== TRANSLITERATION (ROMAN URDU) FIX ===== */
 .transliteration {
-    font-size: 1.2rem;
-    color: #7f8c8d;
-    font-style: italic;
-    line-height: 1.6;
+  font-size: 1.2rem;
+  color: #2c3e50 !important;  /* Dark color for light mode */
+  font-style: italic;
+  line-height: 1.6;
+  background: #f0f0f0 !important;  /* Light grey background */
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 10px;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
 }
 
+/* Dark Mode - Transliteration */
+.duas-container.dark .transliteration {
+  color: #ffffff !important;  /* White text for dark mode */
+  background: #404060 !important;  /* Dark purple/grey background */
+  border: 1px solid #ffd700;
+}
+
+/* ===== DUA DETAILS ===== */
 .dua-details {
-    padding: 25px;
+  padding: 25px;
 }
 
 .detail-row {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .detail-row:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .detail-label {
-    display: block;
-    color: #2c3e50;
-    font-weight: bold;
-    margin-bottom: 8px;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  display: block;
+  color: #2c3e50;
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .detail-label::before {
-    font-size: 1.1rem;
+  font-size: 1.1rem;
 }
 
 .detail-row:nth-child(1) .detail-label::before { content: "🔤"; }
@@ -246,152 +368,204 @@
 .detail-row:nth-child(3) .detail-label::before { content: "✨"; }
 
 .detail-value {
-    color: #34495e;
-    line-height: 1.6;
-    padding: 15px;
-    background: #f8f9fa;
-    border-radius: 10px;
-    border-left: 4px solid #27ae60;
+  color: #34495e;
+  line-height: 1.6;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border-left: 4px solid #27ae60;
+}
+
+.duas-container.dark .detail-value {
+  background: #0a1929 !important;
+  color: #ffffff !important;
+  border-left-color: #ffd700 !important;
 }
 
 .pronunciation {
-    font-style: italic;
-    color: #e74c3c;
+  font-style: italic;
+  color: #e74c3c;
+}
+
+.duas-container.dark .pronunciation {
+  color: #ffd700 !important;
 }
 
 .benefits {
-    color: #27ae60;
-    font-weight: 500;
+  color: #27ae60;
+  font-weight: 500;
 }
 
+.duas-container.dark .benefits {
+  color: #ffd700 !important;
+}
+
+/* ===== DUA FOOTER ===== */
 .dua-footer {
-    padding: 20px 25px;
-    background: #f8f9fa;
-    border-top: 1px solid #e0e0e0;
-    display: flex;
-    justify-content: space-between;
+  padding: 20px 25px;
+  background: #f8f9fa;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.duas-container.dark .dua-footer {
+  background: #0a1929 !important;
+  border-top-color: #404060 !important;
 }
 
 .save-btn, .share-btn {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s;
 }
 
 .save-btn {
-    background: #fff8e1;
-    color: #f39c12;
-    border: 1px solid #ffeaa7;
+  background: #fff8e1;
+  color: #f39c12;
+  border: 1px solid #ffeaa7;
+}
+
+.duas-container.dark .save-btn {
+  background: #2d2d44 !important;
+  color: #ffd700 !important;
+  border-color: #ffd700 !important;
 }
 
 .save-btn:hover {
-    background: #ffeaa7;
-    transform: scale(1.05);
+  background: #ffeaa7;
+  transform: scale(1.05);
 }
 
 .share-btn {
-    background: #e3f2fd;
-    color: #3498db;
-    border: 1px solid #bbdefb;
+  background: #e3f2fd;
+  color: #3498db;
+  border: 1px solid #bbdefb;
+}
+
+.duas-container.dark .share-btn {
+  background: #2d2d44 !important;
+  color: #ffd700 !important;
+  border-color: #ffd700 !important;
 }
 
 .share-btn:hover {
-    background: #bbdefb;
-    transform: scale(1.05);
+  background: #bbdefb;
+  transform: scale(1.05);
 }
 
+/* ===== NO RESULTS ===== */
 .no-results {
-    text-align: center;
-    padding: 50px 20px;
-    color: #7f8c8d;
-    font-size: 1.2rem;
-    background: white;
-    border-radius: 15px;
-    margin: 30px 0;
+  text-align: center;
+  padding: 50px 20px;
+  color: #7f8c8d;
+  font-size: 1.2rem;
+  background: white;
+  border-radius: 15px;
+  margin: 30px 0;
 }
 
+.duas-container.dark .no-results {
+  background: #1e2a47 !important;
+  color: #ffffff !important;
+}
+
+/* ===== FOOTER ===== */
 .duas-footer {
-    background: white;
-    border-radius: 20px;
-    padding: 30px;
-    margin-top: 40px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  margin-top: 40px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.duas-container.dark .duas-footer {
+  background: #1e2a47 !important;
 }
 
 .duas-footer h3 {
-    color: #2c3e50;
-    margin-bottom: 20px;
-    font-size: 1.4rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .duas-footer ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .duas-footer li {
-    padding: 10px 0;
-    color: #34495e;
-    border-bottom: 1px solid #eee;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding-left: 20px;
+  padding: 10px 0;
+  color: #34495e;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 20px;
+}
+
+.duas-container.dark .duas-footer li {
+  color: #ffffff !important;
+  border-bottom-color: #404060 !important;
 }
 
 .duas-footer li::before {
-    content: "✓";
-    color: #27ae60;
-    font-weight: bold;
+  content: "✓";
+  color: #27ae60;
+  font-weight: bold;
+}
+
+.duas-container.dark .duas-footer li::before {
+  color: #ffd700 !important;
 }
 
 .duas-footer li:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
-/* Responsive Design */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-    .duas-container {
-        padding: 10px;
-    }
-    
-    .duas-header h1 {
-        font-size: 2rem;
-        margin-top: 60px;
-    }
-    
-    .duas-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .categories-list {
-        justify-content: center;
-    }
-    
-    .category-btn {
-        padding: 10px 15px;
-        font-size: 0.9rem;
-    }
-    
-    .arabic-text {
-        font-size: 1.6rem;
-    }
-    
-    .dua-header {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .dua-actions {
-        align-self: flex-end;
-    }
+  .duas-container {
+    padding: 10px;
+  }
+  
+  .duas-header h1 {
+    font-size: 2rem;
+    margin-top: 60px;
+  }
+  
+  .duas-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .categories-list {
+    justify-content: center;
+  }
+  
+  .category-btn {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+  
+  .arabic-text {
+    font-size: 1.6rem;
+  }
+  
+  .dua-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .dua-actions {
+    align-self: flex-end;
+  }
 }

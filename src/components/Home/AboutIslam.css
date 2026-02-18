@@ -1,0 +1,334 @@
+.about-islam {
+  padding: 5rem 0;
+  transition: all 0.3s ease;
+}
+
+/* Light Mode */
+.about-islam.light {
+  background: white;
+  color: #2c3e50;
+}
+
+/* Dark Mode - STRICT DARK BACKGROUND */
+.about-islam.dark {
+  background: #0a1929 !important;  /* Very dark blue */
+  color: #ffffff !important;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* DARK MODE - ALL TEXT WHITE BY DEFAULT */
+.dark .about-grid,
+.dark .about-content,
+.dark .about-container,
+.dark .about-islam * {
+  background: transparent !important;
+}
+
+.dark .about-content *,
+.dark .about-description,
+.dark .stat-label,
+.dark .feature-text p,
+.dark p,
+.dark span:not(.stat-number):not(.about-title):not(.feature-text h4) {
+  color: #ffffff !important;
+}
+
+/* Special colored elements - YELLOW */
+.dark .about-title,
+.dark .stat-number,
+.dark .feature-text h4,
+.dark .title-icon {
+  color: #ffd700 !important;
+}
+
+.about-content {
+  animation: fadeInLeft 1s ease;
+}
+
+.about-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.title-icon {
+  font-size: 2.5rem;
+}
+
+.about-description {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  color: #34495e;
+}
+
+/* Stats Section */
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(39, 174, 96, 0.05);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+/* Dark mode stats - DARK BACKGROUND, WHITE TEXT */
+.dark .stat-item {
+  background: #1e2a47 !important;  /* Dark blue background */
+  color: #ffffff !important;
+}
+
+.stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #27ae60;
+  margin-bottom: 0.3rem;
+}
+
+.dark .stat-number {
+  color: #ffd700 !important;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+}
+
+.dark .stat-label {
+  color: #ffffff !important;
+}
+
+/* Features Section */
+.about-features {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+/* Dark mode features - DARK BACKGROUND */
+.dark .feature {
+  background: #1e2a47 !important;  /* Dark blue background */
+}
+
+.feature-icon {
+  font-size: 2rem;
+  min-width: 60px;
+  text-align: center;
+}
+
+.dark .feature-icon {
+  color: #ffd700 !important;
+}
+
+.feature-text h4 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+  color: #2c3e50;
+}
+
+.dark .feature-text h4 {
+  color: #ffd700 !important;
+}
+
+.feature-text p {
+  font-size: 0.95rem;
+  color: #7f8c8d;
+}
+
+.dark .feature-text p {
+  color: #ffffff !important;
+}
+
+/* Image Section */
+.about-image {
+  animation: fadeInRight 1s ease;
+}
+
+.image-container {
+  position: relative;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-icon {
+  font-size: 8rem;
+  animation: pulse 3s ease-in-out infinite;
+  position: relative;
+  z-index: 2;
+}
+
+.dark .main-icon {
+  opacity: 0.9;
+  color: #ffd700 !important;
+}
+
+.floating-icons {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.float-icon {
+  position: absolute;
+  font-size: 2.5rem;
+  animation: floatAround 8s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+.float-icon:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+.float-icon:nth-child(2) { top: 20%; right: 10%; animation-delay: 2s; }
+.float-icon:nth-child(3) { bottom: 20%; left: 15%; animation-delay: 4s; }
+.float-icon:nth-child(4) { bottom: 10%; right: 15%; animation-delay: 6s; }
+
+.dark .float-icon {
+  opacity: 0.8;
+  color: #ffd700 !important;
+}
+
+.pattern-dots {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#27ae60 2px, transparent 2px);
+  background-size: 30px 30px;
+  opacity: 0.1;
+  z-index: 1;
+}
+
+.dark .pattern-dots {
+  background-image: radial-gradient(#ffd700 2px, transparent 2px);
+}
+
+/* Animations */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes floatAround {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(20px, -20px) rotate(10deg);
+  }
+  50% {
+    transform: translate(0, -30px) rotate(0deg);
+  }
+  75% {
+    transform: translate(-20px, -10px) rotate(-10deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-islam {
+    padding: 3rem 0;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-title {
+    font-size: 2rem;
+  }
+
+  .about-description {
+    font-size: 1rem;
+  }
+
+  .about-stats {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .stat-item {
+    padding: 0.8rem;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+  }
+
+  .image-container {
+    height: 300px;
+  }
+
+  .main-icon {
+    font-size: 6rem;
+  }
+
+  .float-icon {
+    font-size: 2rem;
+  }
+}

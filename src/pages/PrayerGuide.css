@@ -1,330 +1,545 @@
+/* ===== CONTAINER BACKGROUND FIX ===== */
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+}
+
 .guide-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh !important;
+  transition: all 0.3s ease;
+  width: 100%;
 }
 
-.guide-container h1 {
-    text-align: center;
-    color: #2c3e50;
-    margin: 40px 0 10px;
-    font-size: 2.5rem;
+/* Light Mode Container */
+.guide-container.light {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+  color: #2c3e50;
 }
 
-.subtitle {
-    text-align: center;
-    color: #7f8c8d;
-    margin-bottom: 40px;
-    font-size: 1.1rem;
+/* Dark Mode Container */
+.guide-container.dark {
+  background: #0a1929 !important;
+  color: #ffffff !important;
 }
 
+/* ===== DARK MODE TEXT COLORS ===== */
+.guide-container.dark * {
+  color: #ffffff;
+}
+
+.guide-container.dark h1,
+.guide-container.dark h2,
+.guide-container.dark h3,
+.guide-container.dark h4 {
+  color: #ffffff !important;
+}
+
+.guide-container.dark .step-title-section h2,
+.guide-container.dark .translation-section h3,
+.guide-container.dark .description-section h3,
+.guide-container.dark .quick-tips h3 {
+  color: #ffd700 !important;
+}
+
+.guide-container.dark .nav-back {
+  color: #ffd700 !important;
+}
+
+/* ===== PROGRESS SECTION ===== */
 .progress-section {
-    background: white;
-    border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 30px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.guide-container.dark .progress-section {
+  background: #1e2a47 !important;
 }
 
 .progress-bar {
-    height: 10px;
-    background: #ecf0f1;
-    border-radius: 5px;
-    overflow: hidden;
-    margin-bottom: 15px;
+  height: 10px;
+  background: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.guide-container.dark .progress-bar {
+  background: #404060 !important;
 }
 
 .progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #27ae60, #2ecc71);
-    border-radius: 5px;
-    transition: width 0.3s ease;
+  height: 100%;
+  background: linear-gradient(90deg, #27ae60, #2ecc71);
+  border-radius: 5px;
+  transition: width 0.3s ease;
+}
+
+.guide-container.dark .progress-fill {
+  background: linear-gradient(90deg, #ffd700, #f1c40f) !important;
 }
 
 .step-counter {
-    text-align: center;
-    font-size: 1.2rem;
-    color: #2c3e50;
-    font-weight: bold;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
+.guide-container.dark .step-counter {
+  color: #ffffff !important;
+}
+
+/* ===== STEP NAVIGATION ===== */
 .step-navigation {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
 }
 
 .step-dot {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 2px solid #bdc3c7;
-    background: white;
-    color: #7f8c8d;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #bdc3c7;
+  background: white;
+  color: #7f8c8d;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.step-dot:hover {
-    transform: scale(1.1);
-    border-color: #3498db;
+.guide-container.dark .step-dot {
+  background: #1e2a47 !important;
+  border-color: #404060 !important;
+  color: #ffffff !important;
 }
 
 .step-dot.active {
-    background: #27ae60;
-    color: white;
-    border-color: #27ae60;
-    transform: scale(1.1);
+  background: #27ae60 !important;
+  color: white !important;
+  border-color: #27ae60 !important;
+  transform: scale(1.1);
+}
+
+.guide-container.dark .step-dot.active {
+  background: #ffd700 !important;
+  color: #0a1929 !important;
+  border-color: #ffd700 !important;
 }
 
 .step-dot.completed {
-    background: #2ecc71;
-    color: white;
-    border-color: #2ecc71;
+  background: #2ecc71 !important;
+  color: white !important;
+  border-color: #2ecc71 !important;
 }
 
+.guide-container.dark .step-dot.completed {
+  background: #ffd700 !important;
+  color: #0a1929 !important;
+  border-color: #ffd700 !important;
+}
+
+/* ===== STEP CARD ===== */
 .step-card {
-    background: white;
-    border-radius: 20px;
-    padding: 40px;
-    margin-bottom: 40px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.guide-container.dark .step-card {
+  background: #1e2a47 !important;
 }
 
 .step-header {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    margin-bottom: 40px;
-    padding-bottom: 20px;
-    border-bottom: 2px solid #f1f2f6;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.guide-container.dark .step-header {
+  border-bottom-color: #404060 !important;
 }
 
 .step-image {
-    font-size: 4rem;
-    min-width: 100px;
-    text-align: center;
-}
-
-.step-title-section {
-    flex: 1;
+  font-size: 4rem;
+  min-width: 80px;
+  text-align: center;
 }
 
 .step-title-section h2 {
-    color: #2c3e50;
-    font-size: 2.2rem;
-    margin-bottom: 10px;
+  font-size: 2rem;
+  margin-bottom: 5px;
+  color: #2c3e50;
 }
 
 .step-number {
-    background: #e8f5e9;
-    color: #27ae60;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: bold;
+  background: #e8f5e9;
+  color: #27ae60;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  display: inline-block;
 }
 
+.guide-container.dark .step-number {
+  background: #404060 !important;
+  color: #ffd700 !important;
+}
+
+/* ===== ARABIC SECTION ===== */
 .arabic-section {
-    background: linear-gradient(135deg, #0d3b2a 0%, #1a5c3e 100%);
-    border-radius: 15px;
-    padding: 30px;
-    margin-bottom: 30px;
-    text-align: center;
-    color: white;
+  background: linear-gradient(135deg, #0d3b2a 0%, #1a5c3e 100%);
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.guide-container.dark .arabic-section {
+  background: #2d2d44 !important;
 }
 
 .arabic-text {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 15px;
-    line-height: 1.4;
-    font-family: 'Traditional Arabic', 'Scheherazade', serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  line-height: 1.6;
+  font-family: 'Traditional Arabic', 'Scheherazade', serif;
+  direction: rtl;
+  color: white !important;
+}
+
+.guide-container.dark .arabic-text {
+  color: #ffd700 !important;
 }
 
 .transliteration {
-    font-size: 1.5rem;
-    color: rgba(255, 255, 255, 0.9);
-    font-style: italic;
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-style: italic;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  display: inline-block;
 }
 
-.translation-section, .description-section {
-    margin-bottom: 30px;
+.guide-container.dark .transliteration {
+  background: #404060 !important;
+  color: #e0e0e0 !important;
+}
+
+/* ===== TRANSLATION & DESCRIPTION ===== */
+.translation-section, .description-section, .tip-section {
+  margin-bottom: 25px;
 }
 
 .translation-section h3, .description-section h3 {
-    color: #2c3e50;
-    margin-bottom: 15px;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #2c3e50;
 }
 
-.translation-section h3::before {
-    content: "🔤";
+.translation-text, .description-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border-left: 4px solid #27ae60;
+  color: #34495e;
 }
 
-.description-section h3::before {
-    content: "📝";
+.guide-container.dark .translation-text,
+.guide-container.dark .description-text {
+  background: #0a1929 !important;
+  color: #ffffff !important;
+  border-left-color: #ffd700 !important;
 }
 
-.translation-section p, .description-section p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: #34495e;
-    padding: 15px;
-    background: #f8f9fa;
-    border-radius: 10px;
-    border-left: 4px solid #27ae60;
-}
-
+/* ===== TIP SECTION ===== */
 .tip-section {
-    background: #fff8e1;
-    border-radius: 15px;
-    padding: 25px;
-    border-left: 5px solid #ffc107;
+  background: #fff8e1;
+  border-radius: 10px;
+  padding: 20px;
+  border-left: 4px solid #f39c12;
+}
+
+.guide-container.dark .tip-section {
+  background: #2d2d44 !important;
+  border-left-color: #ffd700 !important;
 }
 
 .tip-section h4 {
-    color: #ff9800;
-    margin-bottom: 10px;
-    font-size: 1.3rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #f39c12;
 }
 
-.tip-section p {
-    color: #5d4037;
-    font-size: 1.1rem;
-    line-height: 1.6;
+.guide-container.dark .tip-section h4 {
+  color: #ffd700 !important;
 }
 
+.tip-text {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #5d4037;
+}
+
+.guide-container.dark .tip-text {
+  color: #ffffff !important;
+}
+
+/* ===== NAVIGATION BUTTONS ===== */
 .navigation-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 40px;
-    gap: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 30px;
 }
 
 .nav-btn {
-    padding: 15px 30px;
-    border: none;
-    border-radius: 50px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
 .prev-btn {
-    background: #95a5a6;
-    color: white;
+  background: #95a5a6;
+  color: white;
 }
 
-.prev-btn:hover:not(.disabled) {
-    background: #7f8c8d;
-    transform: translateX(-5px);
+.guide-container.dark .prev-btn {
+  background: #404060 !important;
+  color: white !important;
 }
 
 .next-btn {
-    background: #27ae60;
-    color: white;
+  background: #27ae60;
+  color: white;
 }
 
-.next-btn:hover:not(.disabled) {
-    background: #219653;
-    transform: translateX(5px);
+.guide-container.dark .next-btn {
+  background: #ffd700 !important;
+  color: #0a1929 !important;
 }
 
 .nav-btn.disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none !important;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
+/* ===== QUICK TIPS ===== */
 .quick-tips {
-    background: white;
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  margin-top: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.guide-container.dark .quick-tips {
+  background: #1e2a47 !important;
 }
 
 .quick-tips h3 {
-    color: #2c3e50;
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #2c3e50;
+}
+
+.guide-container.dark .quick-tips h3 {
+  color: #ffd700 !important;
 }
 
 .quick-tips ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .quick-tips li {
-    padding: 10px 0;
-    font-size: 1.1rem;
-    color: #34495e;
-    border-bottom: 1px solid #eee;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  padding: 8px 0;
+  font-size: 1rem;
+  color: #34495e;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.guide-container.dark .quick-tips li {
+  color: #ffffff !important;
+  border-bottom-color: #404060 !important;
 }
 
 .quick-tips li:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
-/* Responsive Design */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-    .guide-container {
-        padding: 10px;
-    }
-    
-    .guide-container h1 {
-        font-size: 2rem;
-        margin-top: 60px;
-    }
-    
-    .step-header {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
-    
-    .step-image {
-        font-size: 3rem;
-    }
-    
-    .arabic-text {
-        font-size: 1.8rem;
-    }
-    
-    .transliteration {
-        font-size: 1.2rem;
-    }
-    
-    .navigation-buttons {
-        flex-direction: column;
-    }
-    
-    .nav-btn {
-        width: 100%;
-        justify-content: center;
-    }
+  .guide-container {
+    padding: 15px;
+  }
+  
+  .guide-container h1 {
+    font-size: 1.8rem;
+    margin-top: 50px;
+  }
+  
+  .step-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .step-image {
+    font-size: 3rem;
+  }
+  
+  .step-title-section h2 {
+    font-size: 1.6rem;
+  }
+  
+  .arabic-text {
+    font-size: 1.8rem;
+  }
+  
+  .transliteration {
+    font-size: 1.1rem;
+  }
+  
+  .navigation-buttons {
+    flex-direction: column;
+  }
+  
+  .nav-btn {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .step-navigation {
+    gap: 5px;
+  }
+  
+  .step-dot {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+}
+
+/* ===== DARK MODE CONTAINER FIX ===== */
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+/* Light mode body */
+body.light-mode,
+.light-mode {
+  background-color: #f5f7fa !important;
+}
+
+/* Dark mode body */
+body.dark-mode,
+.dark-mode {
+  background-color: #0a1929 !important;
+}
+
+/* App container */
+.App {
+  min-height: 100vh;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+/* Light mode App */
+.light-mode .App,
+.App.light {
+  background-color: #f5f7fa !important;
+}
+
+/* Dark mode App */
+.dark-mode .App,
+.App.dark {
+  background-color: #0a1929 !important;
+}
+
+/* All pages container */
+.light-mode .guide-container,
+.light-mode .duas-container,
+.light-mode .hadiths-container,
+.light-mode .quran-container,
+.light-mode .about-container,
+.light-mode .prayer-container,
+.guide-container.light,
+.duas-container.light,
+.hadiths-container.light,
+.quran-container.light,
+.about-container.light,
+.prayer-container.light {
+  background: transparent !important;
+}
+
+.dark-mode .guide-container,
+.dark-mode .duas-container,
+.dark-mode .hadiths-container,
+.dark-mode .quran-container,
+.dark-mode .about-container,
+.dark-mode .prayer-container,
+.guide-container.dark,
+.duas-container.dark,
+.hadiths-container.dark,
+.quran-container.dark,
+.about-container.dark,
+.prayer-container.dark {
+  background: transparent !important;
+}
+
+/* Force background on main containers */
+.dark-mode,
+.dark-mode body,
+.dark-mode html,
+.dark-mode .App,
+.dark-mode #root {
+  background-color: #0a1929 !important;
+}
+
+.light-mode,
+.light-mode body,
+.light-mode html,
+.light-mode .App,
+.light-mode #root {
+  background-color: #f5f7fa !important;
 }

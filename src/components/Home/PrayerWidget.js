@@ -1,0 +1,90 @@
+import React, { useState, useContext, useEffect } from "react";
+import { LanguageContext } from "../../context/LanguageContext";
+import { ThemeContext } from "../../context/ThemeContext";
+import { content } from "../../data/content";
+import { prayerTimes, updatePrayerTimes } from "../../data/prayerTimes";
+import PrayerCard from "../UI/PrayerCard";
+import "./PrayerWidget.css";
+
+function PrayerWidget() {
+  const { language } = useContext(LanguageContext);
+  const { isDarkMode } = useContext(ThemeContext);
+  const t = content[language];
+  const [times, setTimes] = useState(prayerTimes);
+  const [loading, setLoading] = useState(true);
+  const [lastUpdated, setLastUpdated] = useState("");
+
+  useEffect(() => {
+    const loadPrayerTimes = async () => {
+      setLoading(true);
+      try {
+        const updated = await updatePrayerTimes();
+        setTimes(updated);
+        const now = new Date();
+        setLastUpdated(now.toLocaleTimeString());
+      } catch (error) {
+        console.error("Failed to load prayer times");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadPrayerTimes();
+
+    // Refresh every hour to keep times updated
+    const interval = setInterval(loadPrayerTimes, 3600000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <section
+      id="prayer-times"
+      className={`prayer-widget ${isDarkMode ? "dark" : "light"}`}
+    >
+      <div className="widget-container">
+        <div className="widget-header">
+          <h2 className="widget-title">
+            <span className="title-icon">🕋</span>
+            {t.prayerTimesTitle}
+          </h2>
+          <p className="widget-subtitle">
+            {language === "urdu"
+              ? "حماری ویب سے براہ راست اوقات"
+              : "Live times from Hamariweb"}
+          </p>
+          {lastUpdated && (
+            <p className="update-time">
+              {language === "urdu"
+                ? `آخری اپ ڈیٹ: ${lastUpdated}`
+                : `Last updated: ${lastUpdated}`}
+            </p>
+          )}
+        </div>
+
+        {loading ? (
+          <div className="loading-spinner">
+            <div className="spinner"></div>
+            <p>{language === "urdu" ? "لوڈ ہو رہا ہے..." : "Loading..."}</p>
+          </div>
+        ) : (
+          <div className="prayer-cards-grid">
+            {times.map((prayer) => (
+              <PrayerCard key={prayer.id} prayer={prayer} />
+            ))}
+          </div>
+        )}
+
+        <div className="widget-note">
+          <span className="note-icon">ℹ️</span>
+          <p>
+            {language === "urdu"
+              ? "یہ اوقات حماری ویب سے براہ راست حاصل کیے گئے ہیں اور ہر گھنٹے اپ ڈیٹ ہوتے ہیں۔"
+              : "These times are fetched directly from Hamariweb and update hourly."}
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default PrayerWidget;

@@ -1,0 +1,339 @@
+/* ===== PRAYER WIDGET BASE STYLES ===== */
+.prayer-widget {
+  padding: 4rem 0;
+  transition: all 0.3s ease;
+}
+
+/* ===== LIGHT MODE ===== */
+.prayer-widget.light {
+  background: white;
+  color: #2c3e50;
+}
+
+/* ===== DARK MODE ===== */
+.prayer-widget.dark {
+  background: #16213e;
+  color: #fff;
+}
+
+/* ===== CONTAINER ===== */
+.widget-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ===== HEADER SECTION ===== */
+.widget-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.widget-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* ===== KAABA ICON - NO SPIN ===== */
+.title-icon {
+  font-size: 2.5rem;
+  display: inline-block;
+  transition: transform 0.3s ease;
+  /* NO ANIMATION HERE - SPIN REMOVED */
+}
+
+/* Subtle hover effect instead of spin */
+.title-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Dark mode icon color */
+.dark .title-icon {
+  color: #ffd700;
+}
+
+.widget-subtitle {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  margin-bottom: 0.5rem;
+}
+
+.dark .widget-subtitle {
+  color: #b0b0b0;
+}
+
+/* ===== UPDATE TIME STYLES ===== */
+.update-time {
+  font-size: 0.95rem;
+  color: #27ae60;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  background: rgba(39, 174, 96, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.dark .update-time {
+  color: #ffd700;
+  background: rgba(255, 215, 0, 0.1);
+}
+
+/* ===== LOADING SPINNER ===== */
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  margin: 20px 0;
+}
+
+.dark .loading-spinner {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 5px solid rgba(39, 174, 96, 0.2);
+  border-radius: 50%;
+  border-top-color: #27ae60;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+.dark .spinner {
+  border: 5px solid rgba(255, 215, 0, 0.2);
+  border-top-color: #ffd700;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-spinner p {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+}
+
+.dark .loading-spinner p {
+  color: #b0b0b0;
+}
+
+/* ===== PRAYER CARDS GRID ===== */
+.prayer-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* ===== WIDGET NOTE ===== */
+.widget-note {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(39, 174, 96, 0.05);
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  margin-top: 2rem;
+  border-left: 4px solid #27ae60;
+}
+
+.dark .widget-note {
+  background: rgba(255, 215, 0, 0.1);
+  border-left-color: #ffd700;
+}
+
+.note-icon {
+  font-size: 1.5rem;
+  min-width: 40px;
+  text-align: center;
+}
+
+.widget-note p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #34495e;
+  margin: 0;
+}
+
+.dark .widget-note p {
+  color: #b0b0b0;
+}
+
+/* ===== LIVE INDICATOR ===== */
+.live-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #27ae60;
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.dark .live-indicator {
+  background: #ffd700;
+  color: #0a1929;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.dark .live-dot {
+  background: #0a1929;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+/* ===== ERROR STATE ===== */
+.error-message {
+  text-align: center;
+  padding: 40px;
+  background: #fee;
+  border-radius: 15px;
+  color: #e74c3c;
+  margin: 20px 0;
+}
+
+.dark .error-message {
+  background: #2d2d44;
+  color: #ff6b6b;
+}
+
+.retry-btn {
+  background: #27ae60;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  margin-top: 15px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.retry-btn:hover {
+  background: #219653;
+  transform: translateY(-2px);
+}
+
+.dark .retry-btn {
+  background: #ffd700;
+  color: #0a1929;
+}
+
+.dark .retry-btn:hover {
+  background: #f1c40f;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .prayer-widget {
+    padding: 2rem 0;
+  }
+
+  .widget-title {
+    font-size: 2rem;
+  }
+
+  .title-icon {
+    font-size: 2rem;
+  }
+
+  .widget-subtitle {
+    font-size: 1rem;
+  }
+
+  .prayer-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .widget-note {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+
+  .note-icon {
+    font-size: 1.3rem;
+    min-width: auto;
+  }
+
+  .update-time {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .loading-spinner {
+    padding: 40px 20px;
+  }
+
+  .spinner {
+    width: 50px;
+    height: 50px;
+    border-width: 4px;
+  }
+}
+
+/* ===== SMALL MOBILE DEVICES ===== */
+@media (max-width: 480px) {
+  .widget-title {
+    font-size: 1.8rem;
+    flex-wrap: wrap;
+  }
+
+  .title-icon {
+    font-size: 1.8rem;
+  }
+
+  .live-indicator {
+    margin-left: 0;
+    margin-top: 5px;
+  }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  .prayer-widget {
+    background: white;
+    color: black;
+    padding: 1rem 0;
+  }
+
+  .widget-note,
+  .update-time,
+  .live-indicator {
+    display: none;
+  }
+}

@@ -1,164 +1,230 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../context/ThemeContext";
+import { LanguageContext } from "../context/LanguageContext";
 import "./QuranVerses.css";
 
 function QuranVerses() {
+  const { isDarkMode } = useContext(ThemeContext);
+  const { language } = useContext(LanguageContext);
   const [currentVerse, setCurrentVerse] = useState(0);
   const [showTranslation, setShowTranslation] = useState(true);
   const [showTafsir, setShowTafsir] = useState(false);
   const [autoPlay, setAutoPlay] = useState(false);
 
+  // Force re-render on theme/language change
+  useEffect(() => {}, [isDarkMode, language]);
+
   const quranVerses = [
     {
       id: 1,
-      surah: "الفاتحة",
+      surahUrdu: "الفاتحہ",
+      surahEng: "Al-Fatihah",
       surahNumber: 1,
       verseNumber: 1,
       arabic: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
       transliteration: "Bismillahir Rahmanir Raheem",
-      translation:
-        "شروع کرتا ہوں اللہ کے نام سے جو بڑا مہربان نہایت رحم والا ہے",
-      tafsir:
+      translationUrdu: "شروع اللہ کے نام سے جو بڑا مہربان نہایت رحم والا ہے",
+      translationEng:
+        "In the name of Allah, the Most Gracious, the Most Merciful",
+      tafsirUrdu:
         "ہر کام اللہ کے نام سے شروع کرنا چاہیے۔ رحمن اور رحیم اللہ کی صفاتی نام ہیں جو اس کی رحمت کی وسعت ظاہر کرتے ہیں۔",
-      category: "شروع",
+      tafsirEng:
+        "Every action should begin with the name of Allah. Ar-Rahman and Ar-Raheem are His attributes that show the vastness of His mercy.",
+      categoryUrdu: "شروع",
+      categoryEng: "Beginning",
     },
     {
       id: 2,
-      surah: "البقرہ",
+      surahUrdu: "البقرہ",
+      surahEng: "Al-Baqarah",
       surahNumber: 2,
       verseNumber: 255,
       arabic:
         "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ",
       transliteration:
         "Allahu la ilaha illa Huwal Hayyul Qayyum, la ta'khuzuhu sinatun wa la nawm, lahu ma fis samawati wa ma fil ardh",
-      translation:
+      translationUrdu:
         "اللہ وہ ہے جس کے سوا کوئی معبود نہیں، زندہ، قائم رکھنے والا، نہ اُس کو اونگھ آتی ہے نہ نیند، اسی کا ہے جو کچھ آسمانوں میں ہے اور جو کچھ زمین میں ہے",
-      tafsir:
+      translationEng:
+        "Allah! There is no deity except Him, the Ever-Living, the Sustainer of existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth",
+      tafsirUrdu:
         "آیت الکرسی، قرآن کی عظیم ترین آیتوں میں سے ایک۔ اللہ کی حیات، قیومیت اور قدرت کی کامل بیان۔",
-      category: "توحید",
+      tafsirEng:
+        "Ayat-ul-Kursi, one of the greatest verses of the Quran. A complete expression of Allah's life, self-subsistence, and power.",
+      categoryUrdu: "توحید",
+      categoryEng: "Monotheism",
     },
     {
       id: 3,
-      surah: "البقرہ",
+      surahUrdu: "البقرہ",
+      surahEng: "Al-Baqarah",
       surahNumber: 2,
       verseNumber: 286,
       arabic:
         "لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا ۚ لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْ",
       transliteration:
         "La yukallifullah nafsan illa wus'aha, laha ma kasabat wa alaiha ma iktasabat",
-      translation:
+      translationUrdu:
         "اللہ کسی جان کو اس کی طاقت سے زیادہ تکلیف نہیں دیتا، اس نے جو اچھا کیا اس کے لیے ہے اور جس برائی کا ارتکاب کیا اس پر ہے",
-      tafsir:
+      translationEng:
+        "Allah does not burden a soul beyond its capacity. It will have what it has earned, and against it will be what it has incurred",
+      tafsirUrdu:
         "اللہ کی رحمت کا اظہار کہ وہ کسی پر اس کی استطاعت سے زیادہ بوجھ نہیں ڈالتا۔",
-      category: "رحمت",
+      tafsirEng:
+        "Manifestation of Allah's mercy that He does not burden anyone beyond their capacity.",
+      categoryUrdu: "رحمت",
+      categoryEng: "Mercy",
     },
     {
       id: 4,
-      surah: "آل عمران",
+      surahUrdu: "آل عمران",
+      surahEng: "Aal-e-Imran",
       surahNumber: 3,
       verseNumber: 139,
       arabic:
         "وَلَا تَهِنُوا وَلَا تَحْزَنُوا وَأَنْتُمُ الْأَعْلَوْنَ إِنْ كُنْتُمْ مُؤْمِنِينَ",
       transliteration:
         "Wa la tahinu wa la tahzanu wa antumul a'lawna in kuntum mu'mineen",
-      translation:
+      translationUrdu:
         "اور تم نہ ہمت ہارو اور نہ غمگین ہو اور تم ہی غالب رہو گے اگر تم ایمان دار ہو",
-      tafsir: "مسلمانوں کو ہمت اور صبر کی تلقین، ایمان کی قوت سے فتح یقینی ہے۔",
-      category: "ہمت",
+      translationEng:
+        "So do not weaken nor grieve, for you will be superior if you are believers",
+      tafsirUrdu:
+        "مسلمانوں کو ہمت اور صبر کی تلقین، ایمان کی قوت سے فتح یقینی ہے۔",
+      tafsirEng:
+        "Encouragement for Muslims to have courage and patience. Victory is certain through the strength of faith.",
+      categoryUrdu: "ہمت",
+      categoryEng: "Courage",
     },
     {
       id: 5,
-      surah: "الانعام",
+      surahUrdu: "الانعام",
+      surahEng: "Al-An'am",
       surahNumber: 6,
       verseNumber: 162,
       arabic:
         "قُلْ إِنَّ صَلَاتِي وَنُسُكِي وَمَحْيَايَ وَمَمَاتِي لِلَّهِ رَبِّ الْعَالَمِينَ",
       transliteration:
         "Qul inna salati wa nusuki wa mahyaya wa mamati lillahi Rabbil 'alameen",
-      translation:
+      translationUrdu:
         "کہہ دو کہ میری نماز اور میری قربانی اور میرا جینا اور میرا مرنا سب اللہ ہی کے لیے ہے جو سارے جہان کا پالنے والا ہے",
-      tafsir: "پوری زندگی اللہ کے لیے وقف کرنے کا اعلان، عبادت کا مکمل تصور۔",
-      category: "عبادت",
+      translationEng:
+        'Say, "Indeed, my prayer, my rites of sacrifice, my living and my dying are for Allah, Lord of the worlds"',
+      tafsirUrdu:
+        "پوری زندگی اللہ کے لیے وقف کرنے کا اعلان، عبادت کا مکمل تصور۔",
+      tafsirEng:
+        "Declaration of dedicating one's entire life to Allah, the complete concept of worship.",
+      categoryUrdu: "عبادت",
+      categoryEng: "Worship",
     },
     {
       id: 6,
-      surah: "الرعد",
+      surahUrdu: "الرعد",
+      surahEng: "Ar-Ra'd",
       surahNumber: 13,
       verseNumber: 28,
       arabic:
         "الَّذِينَ آمَنُوا وَتَطْمَئِنُّ قُلُوبُهُمْ بِذِكْرِ اللَّهِ ۗ أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ",
       transliteration:
         "Allazeena amanu wa tatma'inu qulubuhum bizikrillah, ala bizikrillahi tatma'in nul qulub",
-      translation:
+      translationUrdu:
         "وہ لوگ جو ایمان لائے اور ان کے دل اللہ کے ذکر سے مطمئن ہوتے ہیں، جان لو کہ اللہ ہی کے ذکر سے دلوں کو اطمینان حاصل ہوتا ہے",
-      tafsir: "اللہ کا ذکر دلوں کے لیے سکون و اطمینان کا ذریعہ ہے۔",
-      category: "ذکر",
+      translationEng:
+        "Those who have believed and whose hearts are assured by the remembrance of Allah. Unquestionably, by the remembrance of Allah hearts are assured",
+      tafsirUrdu: "اللہ کا ذکر دلوں کے لیے سکون و اطمینان کا ذریعہ ہے۔",
+      tafsirEng:
+        "The remembrance of Allah is the source of peace and tranquility for hearts.",
+      categoryUrdu: "ذکر",
+      categoryEng: "Remembrance",
     },
     {
       id: 7,
-      surah: "الطلاق",
+      surahUrdu: "الطلاق",
+      surahEng: "At-Talaq",
       surahNumber: 65,
       verseNumber: 2,
       arabic: "وَمَنْ يَتَّقِ اللَّهَ يَجْعَلْ لَهُ مَخْرَجًا",
       transliteration: "Wa man yattaqillaha yaj'al lahu makhraja",
-      translation:
+      translationUrdu:
         "اور جو اللہ سے ڈرتا ہے، اللہ اس کے لیے نکلنے کی راہ پیدا کر دیتا ہے",
-      tafsir:
+      translationEng: "And whoever fears Allah, He will make for him a way out",
+      tafsirUrdu:
         "تقویٰ مشکلات سے نکلنے کا راستہ بناتا ہے، اللہ پر توکل کرنے والے کے لیے آسانیاں پیدا ہوتی ہیں۔",
-      category: "تقویٰ",
+      tafsirEng:
+        "Taqwa (fear of Allah) creates a way out of difficulties. Ease is created for those who put their trust in Allah.",
+      categoryUrdu: "تقویٰ",
+      categoryEng: "Piety",
     },
     {
       id: 8,
-      surah: "الزمر",
+      surahUrdu: "الزمر",
+      surahEng: "Az-Zumar",
       surahNumber: 39,
       verseNumber: 53,
       arabic:
         "قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَىٰ أَنْفُسِهِمْ لَا تَقْنَطُوا مِنْ رَحْمَةِ اللَّهِ",
       transliteration:
         "Qul ya 'ibadiyal lazeena asrafu 'ala anfusihim la taqnatu min rahmatillah",
-      translation:
+      translationUrdu:
         "کہہ دو اے میرے بندو جنہوں نے اپنی جانوں پر زیادتی کی ہے، اللہ کی رحمت سے ناامید نہ ہو",
-      tafsir:
+      translationEng:
+        'Say, "O My servants who have transgressed against themselves, do not despair of the mercy of Allah"',
+      tafsirUrdu:
         "اللہ کی رحمت بہت وسیع ہے، گناہگار بھی توبہ کر کے بخشش پا سکتے ہیں۔",
-      category: "رحمت",
+      tafsirEng:
+        "Allah's mercy is vast. Sinners can also attain forgiveness through repentance.",
+      categoryUrdu: "رحمت",
+      categoryEng: "Mercy",
     },
     {
       id: 9,
-      surah: "الحشر",
+      surahUrdu: "الحشر",
+      surahEng: "Al-Hashr",
       surahNumber: 59,
       verseNumber: 18,
       arabic:
         "يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَلْتَنْظُرْ نَفْسٌ مَا قَدَّمَتْ لِغَدٍ",
       transliteration:
         "Ya ayyuhal lazeena amanut taqullah wa l tandhur nafsun ma qaddamat li ghad",
-      translation:
+      translationUrdu:
         "اے ایمان والو! اللہ سے ڈرو اور ہر شخص دیکھے کہ اس نے کل (آخرت) کے لیے کیا بھیجا ہے",
-      tafsir:
+      translationEng:
+        "O you who have believed, fear Allah. And let every soul look to what it has put forth for tomorrow",
+      tafsirUrdu:
         "آخرت کی فکر اور اعمال کی محاسبہ، ایمان کی تکمیل کے لیے ضروری ہے۔",
-      category: "آخرت",
+      tafsirEng:
+        "Concern for the Hereafter and self-accountability are essential for completing one's faith.",
+      categoryUrdu: "آخرت",
+      categoryEng: "Hereafter",
     },
     {
       id: 10,
-      surah: "العلق",
+      surahUrdu: "العلق",
+      surahEng: "Al-Alaq",
       surahNumber: 96,
       verseNumber: 1,
       arabic: "اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ",
       transliteration: "Iqra bismi rabbikal lazee khalaq",
-      translation: "پڑھ اپنے رب کے نام سے جس نے پیدا کیا",
-      tafsir:
+      translationUrdu: "پڑھ اپنے رب کے نام سے جس نے پیدا کیا",
+      translationEng: "Read! In the name of your Lord who created",
+      tafsirUrdu:
         "پہلی وحی، علم اور تعلیم کی اہمیت پر زور، اللہ کے نام سے شروع کرنے کی تلقین۔",
-      category: "علم",
+      tafsirEng:
+        "The first revelation, emphasizing the importance of knowledge and education, and beginning with the name of Allah.",
+      categoryUrdu: "علم",
+      categoryEng: "Knowledge",
     },
   ];
 
-  const verses = quranVerses; // Direct assignment
+  const verses = quranVerses;
 
   useEffect(() => {
     let interval;
     if (autoPlay && verses.length > 0) {
       interval = setInterval(() => {
         setCurrentVerse((prev) => (prev + 1) % verses.length);
-      }, 10000); // Change verse every 10 seconds
+      }, 10000);
     }
     return () => clearInterval(interval);
   }, [autoPlay, verses.length]);
@@ -177,22 +243,30 @@ function QuranVerses() {
 
   const handleCopyVerse = () => {
     const verse = verses[currentVerse];
-    const text = `${verse.arabic}\n\n${verse.translation}\n\n${verse.tafsir}`;
+    const text = `${verse.arabic}\n\n${verse.transliteration}\n\n${language === "urdu" ? verse.translationUrdu : verse.translationEng}\n\n${language === "urdu" ? verse.tafsirUrdu : verse.tafsirEng}`;
     navigator.clipboard.writeText(text);
-    alert("آیت کاپی ہو گئی!");
+    alert(language === "urdu" ? "آیت کاپی ہو گئی!" : "Verse copied!");
   };
 
   const currentVerseData = verses[currentVerse];
 
   return (
-    <div className="quran-container">
+    <div className={`quran-container ${isDarkMode ? "dark" : "light"}`}>
       <Link to="/" className="nav-back">
-        ← ہوم پیج
+        {language === "urdu" ? "← ہوم پیج" : "← Home"}
       </Link>
 
       <header className="quran-header">
-        <h1>📖 روزانہ قرآنی آیات</h1>
-        <p className="subtitle">روزانہ کی ہدایت اور روحانی غذا</p>
+        <h1>
+          {language === "urdu"
+            ? "📖 روزانہ قرآنی آیات"
+            : "📖 Daily Quran Verses"}
+        </h1>
+        <p className="subtitle">
+          {language === "urdu"
+            ? "روزانہ کی ہدایت اور روحانی غذا"
+            : "Daily guidance and spiritual nourishment"}
+        </p>
       </header>
 
       <div className="controls-panel">
@@ -202,10 +276,20 @@ function QuranVerses() {
               className={`auto-play-btn ${autoPlay ? "active" : ""}`}
               onClick={() => setAutoPlay(!autoPlay)}
             >
-              {autoPlay ? "⏸️ خودکار چلنا بند کریں" : "▶️ خودکار چلائیں"}
+              {autoPlay
+                ? language === "urdu"
+                  ? "⏸️ خودکار بند کریں"
+                  : "⏸️ Stop Auto-play"
+                : language === "urdu"
+                  ? "▶️ خودکار چلائیں"
+                  : "▶️ Auto-play"}
             </button>
             <span className="auto-play-info">
-              {autoPlay ? "(ہر 10 سیکنڈ بعد تبدیل ہوگی)" : ""}
+              {autoPlay
+                ? language === "urdu"
+                  ? "(ہر 10 سیکنڈ بعد)"
+                  : "(every 10 seconds)"
+                : ""}
             </span>
           </div>
 
@@ -214,14 +298,26 @@ function QuranVerses() {
               className={`display-btn ${showTranslation ? "active" : ""}`}
               onClick={() => setShowTranslation(!showTranslation)}
             >
-              {showTranslation ? "🔤 ترجمہ چھپائیں" : "🔤 ترجمہ دکھائیں"}
+              {showTranslation
+                ? language === "urdu"
+                  ? "🔤 ترجمہ چھپائیں"
+                  : "🔤 Hide Translation"
+                : language === "urdu"
+                  ? "🔤 ترجمہ دکھائیں"
+                  : "🔤 Show Translation"}
             </button>
 
             <button
               className={`display-btn ${showTafsir ? "active" : ""}`}
               onClick={() => setShowTafsir(!showTafsir)}
             >
-              {showTafsir ? "💡 تفسیر چھپائیں" : "💡 تفسیر دکھائیں"}
+              {showTafsir
+                ? language === "urdu"
+                  ? "💡 تفسیر چھپائیں"
+                  : "💡 Hide Tafsir"
+                : language === "urdu"
+                  ? "💡 تفسیر دکھائیں"
+                  : "💡 Show Tafsir"}
             </button>
           </div>
         </div>
@@ -229,16 +325,18 @@ function QuranVerses() {
 
       <div className="verse-navigation">
         <div className="verse-counter">
-          آیت {currentVerse + 1} از {verses.length}
+          {language === "urdu"
+            ? `آیت ${currentVerse + 1} از ${verses.length}`
+            : `Verse ${currentVerse + 1} of ${verses.length}`}
         </div>
 
         <div className="nav-buttons">
           <button onClick={prevVerse} className="nav-btn prev-btn">
-            ← پچھلی آیت
+            {language === "urdu" ? "← پچھلی آیت" : "← Previous Verse"}
           </button>
 
           <button onClick={nextVerse} className="nav-btn next-btn">
-            اگلی آیت →
+            {language === "urdu" ? "اگلی آیت →" : "Next Verse →"}
           </button>
         </div>
       </div>
@@ -247,16 +345,26 @@ function QuranVerses() {
         <div className="verse-card">
           <div className="verse-header">
             <div className="surah-info">
-              <h2>{currentVerseData.surah}</h2>
+              <h2>
+                {language === "urdu"
+                  ? currentVerseData.surahUrdu
+                  : currentVerseData.surahEng}
+              </h2>
               <div className="verse-meta">
                 <span className="surah-number">
-                  سورہ #{currentVerseData.surahNumber}
+                  {language === "urdu"
+                    ? `سورہ #${currentVerseData.surahNumber}`
+                    : `Surah #${currentVerseData.surahNumber}`}
                 </span>
                 <span className="verse-number">
-                  آیت #{currentVerseData.verseNumber}
+                  {language === "urdu"
+                    ? `آیت #${currentVerseData.verseNumber}`
+                    : `Verse #${currentVerseData.verseNumber}`}
                 </span>
                 <span className="verse-category">
-                  {currentVerseData.category}
+                  {language === "urdu"
+                    ? currentVerseData.categoryUrdu
+                    : currentVerseData.categoryEng}
                 </span>
               </div>
             </div>
@@ -265,17 +373,23 @@ function QuranVerses() {
               <button
                 className="copy-btn"
                 onClick={handleCopyVerse}
-                title="آیت کاپی کریں"
+                title={language === "urdu" ? "آیت کاپی کریں" : "Copy verse"}
               >
-                📋 کاپی
+                📋 {language === "urdu" ? "کاپی" : "Copy"}
               </button>
 
               <button
                 className="bookmark-btn"
-                onClick={() => alert("آیت نشان زد ہو گئی!")}
-                title="نشان زد کریں"
+                onClick={() =>
+                  alert(
+                    language === "urdu"
+                      ? "آیت نشان زد ہو گئی!"
+                      : "Verse bookmarked!",
+                  )
+                }
+                title={language === "urdu" ? "نشان زد کریں" : "Bookmark"}
               >
-                ⭐ نشان زد
+                ⭐ {language === "urdu" ? "نشان زد" : "Save"}
               </button>
             </div>
           </div>
@@ -289,32 +403,46 @@ function QuranVerses() {
 
           {showTranslation && (
             <div className="translation-section">
-              <h3>ترجمہ:</h3>
-              <p className="translation-text">{currentVerseData.translation}</p>
+              <h3>{language === "urdu" ? "ترجمہ:" : "Translation:"}</h3>
+              <p className="translation-text">
+                {language === "urdu"
+                  ? currentVerseData.translationUrdu
+                  : currentVerseData.translationEng}
+              </p>
             </div>
           )}
 
           {showTafsir && (
             <div className="tafsir-section">
-              <h3>تفسیر:</h3>
-              <p className="tafsir-text">{currentVerseData.tafsir}</p>
+              <h3>{language === "urdu" ? "تفسیر:" : "Tafsir:"}</h3>
+              <p className="tafsir-text">
+                {language === "urdu"
+                  ? currentVerseData.tafsirUrdu
+                  : currentVerseData.tafsirEng}
+              </p>
             </div>
           )}
 
           <div className="verse-footer">
             <div className="category-badge">
-              زمرہ: {currentVerseData.category}
+              {language === "urdu"
+                ? currentVerseData.categoryUrdu
+                : currentVerseData.categoryEng}
             </div>
             <div className="share-options">
-              <button className="share-btn">🔗 شیئر کریں</button>
-              <button className="audio-btn">🔊 سنیں</button>
+              <button className="share-btn">
+                🔗 {language === "urdu" ? "شیئر کریں" : "Share"}
+              </button>
+              <button className="audio-btn">
+                🔊 {language === "urdu" ? "سنیں" : "Listen"}
+              </button>
             </div>
           </div>
         </div>
       </div>
 
       <div className="verses-list">
-        <h3>تمام آیات:</h3>
+        <h3>{language === "urdu" ? "تمام آیات:" : "All Verses:"}</h3>
         <div className="verses-grid">
           {verses.map((verse, index) => (
             <button
@@ -326,8 +454,14 @@ function QuranVerses() {
                 {verse.arabic.substring(0, 30)}...
               </div>
               <div className="verse-item-info">
-                <span className="item-surah">{verse.surah}</span>
-                <span className="item-verse">آیت {verse.verseNumber}</span>
+                <span className="item-surah">
+                  {language === "urdu" ? verse.surahUrdu : verse.surahEng}
+                </span>
+                <span className="item-verse">
+                  {language === "urdu"
+                    ? `آیت ${verse.verseNumber}`
+                    : `Verse ${verse.verseNumber}`}
+                </span>
               </div>
             </button>
           ))}
@@ -336,30 +470,54 @@ function QuranVerses() {
 
       <footer className="quran-info">
         <div className="info-section">
-          <h3>📚 قرآن پاک کی فضیلت:</h3>
+          <h3>
+            {language === "urdu"
+              ? "📚 قرآن پاک کی فضیلت:"
+              : "📚 Virtues of the Quran:"}
+          </h3>
           <div className="benefits-grid">
             <div className="benefit-card">
-              <h4>شفا</h4>
-              <p>قرآن دل و دماغ کے لیے شفا ہے</p>
+              <h4>{language === "urdu" ? "شفا" : "Healing"}</h4>
+              <p>
+                {language === "urdu"
+                  ? "قرآن دل و دماغ کے لیے شفا ہے"
+                  : "The Quran is a healing for hearts and minds"}
+              </p>
             </div>
             <div className="benefit-card">
-              <h4>رہنمائی</h4>
-              <p>زندگی کے ہر معاملے میں رہنمائی</p>
+              <h4>{language === "urdu" ? "رہنمائی" : "Guidance"}</h4>
+              <p>
+                {language === "urdu"
+                  ? "زندگی کے ہر معاملے میں رہنمائی"
+                  : "Guidance in every matter of life"}
+              </p>
             </div>
             <div className="benefit-card">
-              <h4>ثواب</h4>
-              <p>ہر حرف پڑھنے پر دس نیکیاں</p>
+              <h4>{language === "urdu" ? "ثواب" : "Reward"}</h4>
+              <p>
+                {language === "urdu"
+                  ? "ہر حرف پڑھنے پر دس نیکیاں"
+                  : "Ten rewards for every letter recited"}
+              </p>
             </div>
             <div className="benefit-card">
-              <h4>سکون</h4>
-              <p>دل کو سکون اور اطمینان ملتا ہے</p>
+              <h4>{language === "urdu" ? "سکون" : "Peace"}</h4>
+              <p>
+                {language === "urdu"
+                  ? "دل کو سکون اور اطمینان ملتا ہے"
+                  : "Brings peace and tranquility to the heart"}
+              </p>
             </div>
           </div>
         </div>
 
         <div className="daily-tip">
-          <h3>💡 روزانہ ٹپ:</h3>
-          <p>روزانہ کم از کم ایک آیت قرآن ضرور پڑھیں اور اس پر غور کریں۔</p>
+          <h3>{language === "urdu" ? "💡 روزانہ ٹپ:" : "💡 Daily Tip:"}</h3>
+          <p>
+            {language === "urdu"
+              ? "روزانہ کم از کم ایک آیت قرآن ضرور پڑھیں اور اس پر غور کریں۔"
+              : "Read at least one verse of the Quran daily and reflect upon it."}
+          </p>
         </div>
       </footer>
     </div>
