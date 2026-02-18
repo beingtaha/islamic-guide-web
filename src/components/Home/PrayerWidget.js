@@ -21,7 +21,16 @@ function PrayerWidget() {
         const updated = await updatePrayerTimes();
         setTimes(updated);
         const now = new Date();
-        setLastUpdated(now.toLocaleTimeString());
+        // Format: "Feb 18, 2026, 10:30 AM"
+        const formattedTime = now.toLocaleString("en-US", {
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+          hour: "numeric",
+          minute: "numeric",
+          hour12: true,
+        });
+        setLastUpdated(formattedTime);
       } catch (error) {
         console.error("Failed to load prayer times");
       } finally {
@@ -31,7 +40,7 @@ function PrayerWidget() {
 
     loadPrayerTimes();
 
-    // Refresh every hour to keep times updated
+    // Refresh every hour
     const interval = setInterval(loadPrayerTimes, 3600000);
     return () => clearInterval(interval);
   }, []);
@@ -52,12 +61,16 @@ function PrayerWidget() {
               ? "حماری ویب سے براہ راست اوقات"
               : "Live times from Hamariweb"}
           </p>
-          {lastUpdated && (
-            <p className="update-time">
-              {language === "urdu"
-                ? `آخری اپ ڈیٹ: ${lastUpdated}`
-                : `Last updated: ${lastUpdated}`}
-            </p>
+          {/* Last Updated Timestamp */}
+          {!loading && lastUpdated && (
+            <div className="last-updated">
+              <span className="update-icon">⏱️</span>
+              <span>
+                {language === "urdu"
+                  ? `آخری اپ ڈیٹ: ${lastUpdated}`
+                  : `Last updated: ${lastUpdated}`}
+              </span>
+            </div>
           )}
         </div>
 

@@ -1,5 +1,11 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
+import BackToTop from "./components/UI/BackToTop";
 import { ThemeProvider } from "./context/ThemeContext";
 import { LanguageProvider } from "./context/LanguageContext";
 import Header from "./components/Layout/Header";
@@ -12,11 +18,26 @@ import QuranVerses from "./pages/QuranVerses";
 import About from "./pages/About";
 import "./App.css";
 
+// ScrollToTop Component
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // This makes it smooth!
+    });
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <ThemeProvider>
       <LanguageProvider>
         <Router>
+          <ScrollToTop /> {/* Add this component */}
           <div className="App">
             <Header />
             <Routes>
@@ -28,6 +49,7 @@ function App() {
               <Route path="/about" element={<About />} />
             </Routes>
             <Footer />
+            <BackToTop />
           </div>
         </Router>
       </LanguageProvider>
