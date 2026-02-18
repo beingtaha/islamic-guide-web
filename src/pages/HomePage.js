@@ -8,7 +8,7 @@ import AboutIslam from "../components/Home/AboutIslam";
 import "./HomePage.css";
 
 function HomePage() {
-  const { language } = useContext(LanguageContext);
+  const { language } = useContext(LanguageContext); // eslint-disable-line no-unused-vars
   const { isDarkMode } = useContext(ThemeContext);
 
   return (
