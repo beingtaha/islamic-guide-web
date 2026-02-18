@@ -67,22 +67,6 @@
   transform: translateY(-2px);
 }
 
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 2px;
-  background: #ffd700;
-  transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-  width: 80%;
-}
-
 /* Header Controls */
 .header-controls {
   display: flex;
@@ -90,52 +74,80 @@
   align-items: center;
 }
 
-/* Mobile Menu Styles */
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 1001;
+}
+
+.mobile-menu-btn span {
+  width: 25px;
+  height: 2px;
+  background: currentColor;
+  transition: all 0.3s ease;
+}
+
+/* ===== MOBILE RESPONSIVE FIX ===== */
 @media (max-width: 768px) {
   .header-container {
     padding: 1rem;
   }
 
+  /* Hide desktop menu by default */
   .nav-menu {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
-    right: 0;
-    background: inherit;
+    width: 100%;
     flex-direction: column;
-    padding: 1rem;
+    align-items: center;
+    padding: 1rem 0;
     gap: 0.5rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
   }
 
+  /* Show menu when active class is added */
   .nav-menu.active {
     display: flex;
   }
 
+  /* Light mode mobile menu background */
+  .header.light .nav-menu.active {
+    background: #0d3b2a;  /* Dark green */
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  /* Dark mode mobile menu background */
+  .header.dark .nav-menu.active {
+    background: #1e2a47;  /* Dark blue */
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  /* Mobile nav links */
   .nav-link {
     padding: 1rem;
     text-align: center;
     width: 100%;
+    margin: 0;
+    border-radius: 0;
   }
 
+  .nav-link:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: none;
+  }
+
+  /* Show mobile menu button */
   .mobile-menu-btn {
     display: flex;
-    flex-direction: column;
-    gap: 6px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-    margin-left: 10px;
-  }
-
-  .mobile-menu-btn span {
-    width: 25px;
-    height: 2px;
-    background: currentColor;
-    transition: all 0.3s ease;
   }
 
   /* Animate hamburger to X when menu open */
@@ -157,5 +169,16 @@
 
   .logo-text {
     font-size: 1.2rem;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .logo-text {
+    display: none;  /* Hide text on very small screens, keep only icon */
+  }
+  
+  .logo-icon {
+    font-size: 1.8rem;
   }
 }
